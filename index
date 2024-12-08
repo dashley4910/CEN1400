@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Project</title>
+    <link rel="icon" href="favicon-16x16.png" type="image/png">
+    <link rel="stylesheet" href="./themes/dashley_courseprojecttheme.min.css" />
+	<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src="script.js"></script>
+    <style>
+    	#scaled-image {
+    		transform: scale(0.5);
+    		transform-origin: center;
+    	}
+    	#upscale-image {
+    		transform: scale(3);
+    	}
+    	.spacing {
+   			 margin-bottom: 10px;
+		}
+		.spacingbtm {
+			margin-top: 10px
+		}
+		.movie-list li {
+    display: block; /* Ensures list items expand to fit their content */
+    padding: 0; /* Removes any extra padding */
+    margin: 0 0 10px; /* Space between list items */
+    list-style: none; /* Removes default bullets */
+		}
+		.grid-container {
+  display: grid;
+  grid-template-columns: 50px 150px 1fr 2fr;
+  gap: 15px;
+  margin: 20px;
+}
+.grid-header {
+  font-weight: bold;
+  text-align: center;
+  
+  padding: 5px;
+  border: 1px solid #ddd;
+}
+.grid-item {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center; /* Center-align rank numbers and images */
+}
+.movie-poster {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+    </style>
+</head>
+<body>
+    <div data-role="page" id="home" data-theme="b">
+    	<div data-role="header" data-theme="b">
+    		<h1>DEREKS MOVIE LIST</h1>
+    	</div>
+    	<div data-role="navbar">
+    		<ul>
+    			<li><a href="#home" class="ui-btn-active">Home</a></li>
+    			<li><a href="#list">List</a></li>
+    			<li><a href="#details">Details</a></li>
+    			<li><a href="#submit">Submit</a></li>
+    			<li><a href="#favorites">Favorites</a></li>
+    		</ul>
+    	</div>
+    	<div data-role="image-container" id="scaled-image">
+    	<img id="movie-image" src="homepageimage.jpg" alt="Favorite Movie" />
+    	</div>
+    	<div data-role="content">
+    		<p>Welcome to my website. Please feel free to explore my page to better understand the movies I love and how I rate them. I hope this also provides you some information on the movies and gives you movies to explore.</p>
+    		
+    	</div>
+    	<div data-role="footer" data-theme="b">
+            <h4>&copy; 2024 Derek Ashley</h4>
+    	</div>
+    </div>
+
+    <!-- List Page -->
+    <div data-role="page" id="list" data-theme="b">
+        <div data-role="header" data-theme="b">
+            <h1>Movie List</h1>
+        </div>
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#list" class="ui-btn-active">List</a></li>
+                <li><a href="#details">Details</a></li>
+                <li><a href="#submit">Submit</a></li>
+                <li><a href="favorites">Favorites</a></li>
+            </ul>
+        </div>
+        <div class="grid-container">
+  <!-- Grid Headers -->
+  <div class="grid-header">Rank</div>
+  <div class="grid-header">Movie Poster</div>
+  <div class="grid-header">Title</div>
+  <div class="grid-header">Description</div>
+  
+  <!-- Row 1 -->
+  <div class="grid-item">1</div>
+  <div class="grid-item">
+    <img src="diehard.jpg" alt="Die Hard: With a Vengeance Poster" class="movie-poster">
+  </div>
+  <div class="grid-item">Die Hard: With a Vengeance</div>
+  <div class="grid-item">John McClane teams up with Zeus Carver to stop a vengeful terrorist, Simon Gruber...</div>
+  
+  <!-- Row 2 -->
+  <div class="grid-item">2</div>
+  <div class="grid-item">
+    <img src="enemy.jpg" alt="Enemy at the Gates Poster" class="movie-poster">
+  </div>
+  <div class="grid-item">Enemy at the Gates</div>
+  <div class="grid-item">Set during the Battle of Stalingrad, this war drama chronicles the intense sniper duel...</div>
+  
+  <!-- Row 3 -->
+  <div class="grid-item">3</div>
+  <div class="grid-item">
+    <img src="download.jpg" alt="The Da Vinci Code Poster" class="movie-poster">
+  </div>
+  <div class="grid-item">The Da Vinci Code</div>
+  <div class="grid-item">Symbologist Robert Langdon and cryptologist Sophie Neveu unravel a murder mystery...</div>
+</div>
+
+        <div data-role="footer" data-theme="b">
+            <h4>&copy; 2024 Derek Ashley</h4>
+        </div>
+    </div>
+
+    <!-- Details Page -->
+    <div data-role="page" id="details" data-theme="b">
+    <div data-role="header" data-theme="b">
+        <h1>Movie Details</h1>
+    </div>
+    <div data-role="navbar">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#list">List</a></li>
+            <li><a href="#details" class="ui-btn-active">Details</a></li>
+            <li><a href="#submit">Submit</a></li>
+            <li><a href="favorites">Favorites</a></li>
+        </ul>
+    </div>
+    <div data-role="content">
+        <h2>Details for Selected Movies</h2>
+
+        <!-- Collapsible Panels -->
+        <div data-role="collapsible" data-collapsed="true">
+            <h3>Die Hard: With a Vengeance</h3>
+            <div>
+                <p><strong>Summary:</strong>  
+                John McClane teams up with Zeus Carver to stop a vengeful terrorist, Simon Gruber, who orchestrates a series of deadly challenges across New York City. The movie combines high-stakes action with a gripping cat-and-mouse game.</p>
+                <p><strong>Genre:</strong> Action, Thriller</p>
+                <p><strong>Director:</strong> John McTiernan</p>
+                <p><strong>Stars:</strong> Bruce Willis, Samuel L. Jackson, Jeremy Irons</p>
+                <p><strong>Key Themes:</strong> Revenge, partnership, urban terrorism.</p>
+            </div>
+        </div>
+
+        <div data-role="collapsible" data-collapsed="true">
+            <h3>Enemy at the Gates</h3>
+            <div>
+                <p><strong>Summary:</strong>  
+                Set during the Battle of Stalingrad, this war drama chronicles the intense sniper duel between Soviet marksman Vasily Zaitsev and German Major König. It highlights the brutality of war and the psychological tension of a sniper's life.</p>
+                <p><strong>Genre:</strong> War, Drama, Thriller</p>
+                <p><strong>Director:</strong> Jean-Jacques Annaud</p>
+                <p><strong>Stars:</strong> Jude Law, Rachel Weisz, Ed Harris</p>
+                <p><strong>Key Themes:</strong> Heroism, propaganda, survival.</p>
+            </div>
+        </div>
+
+        <div data-role="collapsible" data-collapsed="true">
+            <h3>The Da Vinci Code</h3>
+            <div>
+                <p><strong>Summary:</strong>  
+                Symbologist Robert Langdon and cryptologist Sophie Neveu unravel a murder mystery connected to a hidden secret guarded by the Catholic Church. Their journey takes them through historical landmarks in Europe, uncovering clues tied to Leonardo da Vinci's works.</p>
+                <p><strong>Genre:</strong> Mystery, Thriller</p>
+                <p><strong>Director:</strong> Ron Howard</p>
+                <p><strong>Stars:</strong> Tom Hanks, Audrey Tautou, Ian McKellen</p>
+                <p><strong>Key Themes:</strong> Religion, conspiracy, hidden knowledge.</p>
+            </div>
+        </div>
+    </div>
+    <div data-role="footer" data-theme="b">
+        <h4>&copy; 2024 Derek Ashley</h4>
+    </div>
+</div>
+
+    
+    <div data-role="page" id="submit" data-theme="b">
+        <div data-role="header" data-theme="b">
+            <h1>Submit Your Information</h1>
+        </div>
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#list" >List</a></li>
+                <li><a href="#details">Details</a></li>
+                <li><a href="#submit"class="ui-btn-active">Submit</a></li>
+                <li><a href="favorites">Favorites</a></li>
+            </ul>
+        </div>
+        <div data-role="content">
+           <form id="movieUserForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Your Name">
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Your Email">
+
+            <label for="favoriteMovie">Favorite Movie:</label>
+            <select id="favoriteMovie" name="favoriteMovie">
+                <option value="dieHard">Die Hard: With a Vengeance</option>
+                <option value="enemyAtTheGates">Enemy at the Gates</option>
+                <option value="daVinciCode">The Da Vinci Code</option>
+            </select>
+
+            <label for="rating">How would you rate it?</label>
+            <input type="number" id="rating" name="rating" min="1" max="5" placeholder="1-5">
+
+            <label for="comments">Comments:</label>
+            <textarea id="comments" name="comments" placeholder="Your thoughts on the movie"></textarea>
+
+            <button type="button" id="submitForm">Submit</button>
+        </form>
+        </div>
+        <div data-role="footer" data-theme="b">
+            <h4>&copy; 2024 Derek Ashley</h4>
+        </div>
+    </div>
+    <div data-role="page" id="favorites" data-theme="b">
+    <div data-role="header" data-theme="b">
+        <h1>Favorites</h1>
+    </div>
+    <div data-role="navbar">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#list">List</a></li>
+            <li><a href="#details">Details</a></li>
+            <li><a href="#submit">Submit</a></li>
+            <li><a href="#favorites" class="ui-btn-active">Favorites</a></li>
+        </ul>
+    </div>
+    <div data-role="content">
+        <h2>My Favorites</h2>
+        <ul id="favorites-list" data-role="listview" data-inset="true">
+            <!-- Favorite items will be dynamically inserted here -->
+        </ul>
+        <h3>Add a Favorite</h3>
+        <form id="add-favorite-form">
+            <input type="text" id="favorite-input" placeholder="Enter favorite movie" />
+            <button type="submit">Add</button>
+        </form>
+    </div>
+    <div data-role="footer" data-theme="b">
+        <h4>&copy; 2024 Derek Ashley</h4>
+    </div>
+</div>
+    
+</body>
+</html>
